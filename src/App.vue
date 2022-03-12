@@ -24,15 +24,10 @@ window.addEventListener('hashchange', () => {
 const currentMap = computed(() => {
     // return maps[1];
     const target = maps.find((map) => {
-        console.log(map.route);
-        console.log(currentPath.value);
-
         return map.route === currentPath.value;
     });
 
-    console.log(target);
-
-    return target;
+    return target ?? maps[0];
 });
 </script>
 
