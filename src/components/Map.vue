@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, Ref, onMounted } from 'vue';
+import { ref, Ref, onMounted, watch } from 'vue';
 import Panzoom, { PanzoomObject } from '@panzoom/panzoom';
 import { IMap } from '../App.vue';
 
@@ -11,10 +11,13 @@ const mapWrapper = ref() as Ref<HTMLElement>;
 const mapElement = ref() as Ref<HTMLElement>;
 let panzoom: PanzoomObject;
 
-onMounted(() => {
+const scaleAndCenterMap = () => {
     const padding = 16;
     const bounds = mapWrapper.value.getBoundingClientRect();
-    const map = mapElement.value.getBoundingClientRect();
+    const map = {
+        width: props.map?.width ?? 0,
+        height: props.map?.height ?? 0,
+    };
     const widthRatio = (bounds.width - padding) / map.width;
     const heightRatio = (bounds.height - padding) / map.height;
     const startScale = Math.min(widthRatio, heightRatio);
@@ -40,9 +43,11 @@ onMounted(() => {
         startX,
         startY,
     });
+};
 
-    // console.log(panzoom.getOptions());
-});
+onMounted(scaleAndCenterMap);
+
+watch(() => props.map, scaleAndCenterMap);
 
 const handleWheel = (e: WheelEvent) => {
     panzoom.zoomWithWheel(e);
@@ -55,7 +60,7 @@ defineExpose({ mapWrapper, mapElement });
     <div ref="mapWrapper" class="map-wrapper" @wheel="handleWheel">
         <img
             ref="mapElement"
-            src="../assets/map-customs.webp"
+            :src="props.map?.url"
             alt=""
             class="map"
             :width="props.map?.width"

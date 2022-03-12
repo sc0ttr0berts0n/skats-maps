@@ -1,7 +1,22 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
+const props = defineProps({ items: Object });
+
 const menuOpen = ref(false);
+
+let menuTimeout: number | undefined = undefined;
+const menuDelay = 400;
+
+const delayedMenuClose = () => {
+    menuTimeout = setTimeout(() => {
+        menuOpen.value = false;
+    }, menuDelay);
+};
+
+const cancelDelayedMenuClose = () => {
+    clearTimeout(menuTimeout);
+};
 </script>
 
 <template>
@@ -12,13 +27,18 @@ const menuOpen = ref(false);
         </div>
         <div class="menu">
             <div class="menu-toggle" @click="menuOpen = !menuOpen">Maps</div>
-            <nav class="nav" v-if="menuOpen">
-                <div class="nav-item">Customs</div>
-                <div class="nav-item">Factory</div>
-                <div class="nav-item">Interchange</div>
-                <div class="nav-item">Lighthouse</div>
-                <div class="nav-item">Shoreline</div>
-                <div class="nav-item">Woods</div>
+            <nav
+                class="nav"
+                v-if="menuOpen"
+                @mouseleave="delayedMenuClose"
+                @mouseenter="cancelDelayedMenuClose"
+            >
+                <a
+                    v-for="map in props.items"
+                    class="nav-item"
+                    :href="map.route"
+                    >{{ map.name }}</a
+                >
             </nav>
         </div>
     </header>
@@ -80,16 +100,16 @@ const menuOpen = ref(false);
 .nav {
     position: absolute;
     background-image: linear-gradient(
-        rgba(34, 34, 30, 0.8),
-        rgba(7, 6, 3, 0.8)
+        rgba(34, 34, 30, 0.9),
+        rgba(7, 6, 3, 0.9)
     );
     border-radius: 0.25rem;
     box-shadow: 0 0 1px 1px rgba(white, 0.5) inset,
         0 0 2rem rgba(rgb(255, 123, 0), 0.25);
-    color: rgba(209, 195, 137, 0.75);
     text-shadow: rgba(34, 34, 30, 0.8) 1px 1px;
     margin-top: 0.375rem;
     padding: 0.75rem 0.75rem;
+    z-index: 1;
 }
 
 .nav-item {
@@ -98,7 +118,10 @@ const menuOpen = ref(false);
     padding: 0.125rem 0;
     width: 100%;
     cursor: pointer;
+    color: rgba(209, 195, 137, 0.75);
+    text-decoration: none;
     &:hover {
+        color: #ffffff;
         text-decoration: underline;
     }
 }

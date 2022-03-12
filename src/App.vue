@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { reactive } from 'vue';
+import { reactive, ref, computed } from 'vue';
 import Nav from './components/Nav.vue';
 import Map from './components/Map.vue';
 import maplist from './assets/maps.json';
 
 export interface IMap {
     name: string;
+    route: string;
     varient: string;
     url: string;
     width: number;
@@ -13,11 +14,31 @@ export interface IMap {
 }
 
 const maps: IMap[] = reactive(maplist);
+
+const currentPath = ref(window.location.hash);
+
+window.addEventListener('hashchange', () => {
+    currentPath.value = window.location.hash;
+});
+
+const currentMap = computed(() => {
+    // return maps[1];
+    const target = maps.find((map) => {
+        console.log(map.route);
+        console.log(currentPath.value);
+
+        return map.route === currentPath.value;
+    });
+
+    console.log(target);
+
+    return target;
+});
 </script>
 
 <template>
-    <Nav />
-    <Map :map="maps[0]" />
+    <Nav :items="maps" />
+    <Map :map="currentMap" :ref="currentPath" />
 </template>
 
 <style lang="scss">

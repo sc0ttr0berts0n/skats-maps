@@ -1,9 +1,58 @@
 [
     {
         "name": "Customs",
+        "route": "#customs",
         "varient": "MONKIMONKIMONKI",
-        "url": "/assets/map-customs.webp",
-        "width": 4097,
-        "height": 2042
+        "url": "/_img/maps/map-customs-monkimonkimonki.png",
+        "width": 3820,
+        "height": 1986
+    },
+    {
+        "name": "Factory",
+        "route": "#factory",
+        "varient": "",
+        "url": "/_img/maps/map-factory.jpg",
+        "width": 2560,
+        "height": 1440
+    },
+    {
+        "name": "Interchange",
+        "route": "#interchange",
+        "varient": "",
+        "url": "/_img/maps/map-interchange.png",
+        "width": 4500,
+        "height": 2800
+    },
+    {
+        "name": "Lighthouse",
+        "route": "#lighthouse",
+        "varient": "",
+        "url": "/_img/maps/map-lighthouse.png",
+        "width": 3892,
+        "height": 2242
+    },
+    {
+        "name": "Reserve",
+        "route": "#reserve",
+        "varient": "",
+        "url": "/_img/maps/map-reserve.png",
+        "width": 3840,
+        "height": 2160
+    },
+    {
+        "name": "Shoreline",
+        "route": "#shoreline",
+        "varient": "",
+        "url": "/_img/maps/map-shoreline.png",
+        "width": 2000,
+        "height": 1037
+    },
+    {
+        "name": "Woods",
+        "route": "#woods",
+        "varient": "",
+        "url": "/_img/maps/map-woods.png",
+        "width": 2000,
+        "height": 1436
     }
 ]
