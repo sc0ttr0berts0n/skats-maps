@@ -26,7 +26,16 @@ const cancelDelayedMenuClose = () => {
             <h1>Skat&rsquo;s Maps</h1>
         </div>
         <div class="menu">
-            <div class="menu-toggle" @click="menuOpen = !menuOpen">Maps</div>
+            <div class="button menu-toggle" @click="menuOpen = !menuOpen">
+                Maps
+            </div>
+            <a
+                href="https://eft-ammo.com/ammo-graph"
+                target="_blank"
+                rel="nofollower"
+                class="button"
+                >Ammo</a
+            >
             <nav
                 class="nav"
                 v-if="menuOpen"
@@ -69,8 +78,9 @@ const cancelDelayedMenuClose = () => {
     padding-left: 1rem;
     font-size: 1.25rem;
     font-weight: bold;
+    display: flex;
 }
-.menu-toggle {
+.button {
     background-image: linear-gradient(rgb(248, 245, 199), rgb(153, 146, 106));
     border-radius: 0.25rem;
     box-shadow: 0 0 1px 1px rgba(white, 0.5) inset,
@@ -81,6 +91,11 @@ const cancelDelayedMenuClose = () => {
     user-select: none;
     cursor: pointer;
     transition: 200ms;
+    margin-left: 1rem;
+    text-decoration: none;
+    &:first-child {
+        margin-left: 0;
+    }
     &:hover {
         box-shadow: 0 0 1px 1px rgba(black, 0.8) inset,
             0 0 2rem rgba(rgb(255, 123, 0), 0.25);
@@ -90,7 +105,10 @@ const cancelDelayedMenuClose = () => {
         //     rgb(128, 122, 89)
         // );
     }
-    &::after {
+    &.menu-toggle {
+        white-space: nowrap;
+    }
+    &.menu-toggle::after {
         display: inline-block;
         content: '▼';
         font-size: 0.75rem;
