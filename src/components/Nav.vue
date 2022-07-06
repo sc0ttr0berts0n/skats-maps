@@ -3,7 +3,7 @@ import { ref } from 'vue';
 
 const props = defineProps({ items: Object });
 
-const menuOpen = ref(false);
+const menuOpen = ref(true);
 
 let menuTimeout: number | undefined = undefined;
 const menuDelay = 400;
@@ -30,7 +30,7 @@ const cancelDelayedMenuClose = () => {
                 Maps
             </div>
             <a
-                href="https://eft-ammo.com/ammo-graph"
+                href="https://tarkov.dev/ammo/"
                 target="_blank"
                 rel="nofollower"
                 class="button"
