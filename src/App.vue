@@ -15,10 +15,16 @@ export interface IMap {
 
 const maps: IMap[] = reactive(maplist);
 
+const baseTitle = 'Skat’s Maps';
+
 const currentPath = ref(window.location.hash);
 
 window.addEventListener('hashchange', () => {
+    const rawSubtitle = window.location.hash.split('#').join('');
+    const subtitle =
+        rawSubtitle[0].toUpperCase() + rawSubtitle.slice(1).toLowerCase();
     currentPath.value = window.location.hash;
+    document.title = `${subtitle} | ${baseTitle}`;
 });
 
 const currentMap = computed(() => {
