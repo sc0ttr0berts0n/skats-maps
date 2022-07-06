@@ -36,6 +36,13 @@ const cancelDelayedMenuClose = () => {
                 class="button"
                 >Ammo</a
             >
+            <a
+                href="https://tarkovtracker.io/"
+                target="_blank"
+                rel="nofollower"
+                class="button"
+                >Tarkov Tracker</a
+            >
             <nav
                 class="nav"
                 v-if="menuOpen"
