@@ -74,7 +74,13 @@ defineExpose({ mapWrapper, mapElement });
     // position: absolute;
     inset: 1rem;
     border-radius: 1rem;
-    background-color: rgba(0, 0, 0, 0.3);
+    background: repeating-linear-gradient(
+        -45deg,
+        rgba(26, 26, 26, 30%),
+        rgba(26, 26, 26, 30%) 10px,
+        rgba(13, 13, 13, 30%) 10px,
+        rgba(13, 13, 13, 30%) 20px
+    );
     overflow: hidden;
 }
 .map {

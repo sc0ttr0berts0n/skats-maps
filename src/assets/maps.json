@@ -32,6 +32,14 @@
         "height": 2242
     },
     {
+        "name": "Labs",
+        "route": "#labs",
+        "varient": "",
+        "url": "/_img/maps/map-labs.webp",
+        "width": 1535,
+        "height": 1535
+    },
+    {
         "name": "Reserve",
         "route": "#reserve",
         "varient": "",

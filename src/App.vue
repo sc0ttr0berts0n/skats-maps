@@ -43,15 +43,21 @@ const currentMap = computed(() => {
 </template>
 
 <style lang="scss">
+@font-face {
+    font-family: 'Bender';
+    src: url('webFonts/Bender/font.woff2') format('woff2'),
+        url('webFonts/Bender/font.woff') format('woff');
+}
+
 * {
     margin: 0;
     padding: 0;
 }
 body {
-    background-color: #2c3e50;
+    background-color: #151e27;
 }
 #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
+    font-family: 'Bender', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: #e8f1fa;
