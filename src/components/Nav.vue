@@ -43,6 +43,13 @@ const cancelDelayedMenuClose = () => {
                 class="button"
                 >Tarkov Tracker</a
             >
+            <a
+                href="https://eft.monster/quest-tree/"
+                target="_blank"
+                rel="nofollower"
+                class="button"
+                >Quest Tree</a
+            >
             <nav
                 class="nav"
                 v-if="menuOpen"
