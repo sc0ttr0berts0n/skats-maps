@@ -3,7 +3,7 @@ import { ref } from 'vue';
 
 const props = defineProps({ items: Object });
 
-const menuOpen = ref(true);
+const menuOpen = ref(false);
 
 let menuTimeout: number | undefined = undefined;
 const menuDelay = 400;
@@ -131,6 +131,7 @@ const cancelDelayedMenuClose = () => {
 }
 .nav {
     position: absolute;
+    top: 3.25rem;
     background-image: linear-gradient(
         rgba(34, 34, 30, 0.9),
         rgba(7, 6, 3, 0.9)
