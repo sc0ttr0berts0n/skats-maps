@@ -56,6 +56,14 @@
         "height": 1037
     },
     {
+        "name": "Streets of Tarkov",
+        "route": "#streets-of-tarkov",
+        "varient": "",
+        "url": "/_img/maps/map-streets-of-tarkov.png",
+        "width": 1299,
+        "height": 1247
+    },
+    {
         "name": "Woods",
         "route": "#woods",
         "varient": "",
